@@ -1,8 +1,11 @@
+using Fluxor;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+builder.Services.AddFluxor(options => options.ScanAssemblies(typeof(Program).Assembly));
 
 var app = builder.Build();
 

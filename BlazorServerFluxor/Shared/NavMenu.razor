@@ -1,4 +1,10 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
+﻿@using Fluxor
+@using Fluxor.Blazor.Web.Components
+
+@inherits FluxorComponent
+@inject IState<ShoppingCartState> ShoppingCartState
+
+<div class="top-row ps-3 navbar navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="">BlazorServerFluxor</a>
         <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
@@ -13,6 +19,9 @@
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
+        </div>
+        <div class="nav-item px-3" style="color: white">
+            <div>Shopping Cart Items: @ShoppingCartState.Value.ItemCount</div>
         </div>
     </nav>
 </div>
